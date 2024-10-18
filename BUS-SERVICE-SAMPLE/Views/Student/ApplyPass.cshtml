@@ -1,0 +1,332 @@
+﻿@model ApplyPassViewModel
+
+@{
+    ViewData["Title"] = "Apply for Bus Pass";
+}
+
+<h2 class="text-center mb-4">Apply for a Bus Pass</h2>
+
+<form id="applyPassForm" method="post" action="#" class="needs-validation" onsubmit="ValidateForm()">
+    
+    <div class="row mb-3">
+        <label for="PassType" class="col-sm-1 col-form-label">Pass Type</label>
+        <div class="col-sm-10 col-md-3">
+            <select class="form-select" id="PassType" name="PassType" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="StudentPass">Student Pass</option>
+                <option value="CollegePass">College Pass</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a pass type.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" required />
+            <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Gender" class="form-label">Gender</label>
+            <select class="form-select" id="Gender" name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <div class="invalid-feedback">Please select gender.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="IsRural" class="form-label">Rural</label>
+            <select class="form-select" id="IsRural" name="IsRural" required>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <div class="invalid-feedback">Please select rural status.</div>
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="DistrictPermanant" class="form-label">District (Permanant)</label>
+            <input type="text" class="form-control" id="DistrictPermanant" name="DistrictPermanant" required />
+            <div class="invalid-feedback">Please enter the permanent district.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="BlockPermanant" class="form-label">Block (Permanant)</label>
+            <input type="text" class="form-control" id="BlockPermanant" name="BlockPermanant" required />
+            <div class="invalid-feedback">Please enter the permanent block.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="ClusterPermanant" class="form-label">Cluster (Permanant)</label>
+            <input type="text" class="form-control" id="ClusterPermanant" name="ClusterPermanant" required />
+            <div class="invalid-feedback">Please enter the permanent cluster.</div>
+        </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="VillagePermanant" class="form-label">Village (Permanant)</label>
+            <input type="text" class="form-control" id="VillagePermanant" name="VillagePermanant" required />
+            <div class="invalid-feedback">Please enter the permanent village.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="DistrictCurrent" class="form-label">District (Current)</label>
+            <input type="text" class="form-control" id="DistrictCurrent" name="DistrictCurrent" required />
+            <div class="invalid-feedback">Please enter the current district.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="BlockCurrent" class="form-label">Block (Current)</label>
+            <input type="text" class="form-control" id="BlockCurrent" name="BlockCurrent" required />
+            <div class="invalid-feedback">Please enter the current block.</div>
+        </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="ClusterCurrent" class="form-label">Cluster (Current)</label>
+            <input type="text" class="form-control" id="ClusterCurrent" name="ClusterCurrent" required />
+            <div class="invalid-feedback">Please enter the current cluster.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="VillageCurrent" class="form-label">Village (Current)</label>
+            <input type="text" class="form-control" id="VillageCurrent" name="VillageCurrent" required />
+            <div class="invalid-feedback">Please enter the current village.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Section" class="form-label">Section</label>
+            <input type="text" class="form-control" id="Section" name="Section" required />
+            <div class="invalid-feedback">Please enter your section.</div>
+        </div>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="RollNumber" class="form-label">Roll Number</label>
+            <input type="text" class="form-control" id="RollNumber" name="RollNumber" required />
+            <div class="invalid-feedback">Please enter your roll number.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="DateOfBirth" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" required />
+            <div class="invalid-feedback">Please enter your date of birth.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Class" class="form-label">Class</label>
+            <input type="text" class="form-control" id="Class" name="Class" required />
+            <div class="invalid-feedback">Please enter your class.</div>
+        </div>
+    </div>
+
+    <!-- Row 6 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="ClassGroup" class="form-label">Class Group</label>
+            <input type="text" class="form-control" id="ClassGroup" name="ClassGroup" required />
+            <div class="invalid-feedback">Please enter your class group.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Category" class="form-label">Category</label>
+            <select class="form-select" id="Category" name="Category" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="General">General</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+            </select>
+            <div class="invalid-feedback">Please select a category.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="SchoolName" class="form-label">School Name</label>
+            <input type="text" class="form-control" id="SchoolName" name="SchoolName" required />
+            <div class="invalid-feedback">Please enter your school name.</div>
+        </div>
+    </div>
+
+    <!-- Row 7 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="SchoolAddress" class="form-label">School Address</label>
+            <input type="text" class="form-control" id="SchoolAddress" name="SchoolAddress" required />
+            <div class="invalid-feedback">Please enter your school address.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="AddressPermanant" class="form-label">Address (Permanent)</label>
+            <input type="text" class="form-control" id="AddressPermanant" name="AddressPermanant" required />
+            <div class="invalid-feedback">Please enter your permanent address.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="AddressCurrent" class="form-label">Address (Current)</label>
+            <input type="text" class="form-control" id="AddressCurrent" name="AddressCurrent" required />
+            <div class="invalid-feedback">Please enter your current address.</div>
+        </div>
+    </div>
+
+    <!-- Row 8 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="SameAsPermanant" class="form-label">Same as Permanent Address</label>
+            <input type="checkbox" class="form-check-input" id="SameAsPermanant" name="SameAsPermanant" />
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="FromLocation" class="form-label">From Location</label>
+            <input type="text" class="form-control" id="FromLocation" name="FromLocation" required />
+            <div class="invalid-feedback">Please enter the starting location.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="ToLocation" class="form-label">To Location</label>
+            <input type="text" class="form-control" id="ToLocation" name="ToLocation" required />
+            <div class="invalid-feedback">Please enter the destination location.</div>
+        </div>
+    </div>
+
+    <!-- Row 9 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Route" class="form-label">Route</label>
+            <input type="text" class="form-control" id="Route" name="Route" required />
+            <div class="invalid-feedback">Please enter the route.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="CounterName" class="form-label">Counter Name</label>
+            <input type="text" class="form-control" id="CounterName" name="CounterName" required />
+            <div class="invalid-feedback">Please enter the counter name.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Stage" class="form-label">Stage</label>
+            <input type="number" class="form-control" id="Stage" name="Stage" required />
+            <div class="invalid-feedback">Please enter the stage number.</div>
+        </div>
+    </div>
+
+    <!-- Row 10 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="AcademicYear" class="form-label">Academic Year</label>
+            <input type="text" class="form-control" id="AcademicYear" name="AcademicYear" required />
+            <div class="invalid-feedback">Please enter the academic year.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="Term" class="form-label">Term</label>
+            <input type="text" class="form-control" id="Term" name="Term" required />
+            <div class="invalid-feedback">Please enter the term.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="TermFrom" class="form-label">Term From</label>
+            <input type="date" class="form-control" id="TermFrom" name="TermFrom" required />
+            <div class="invalid-feedback">Please enter the term start date.</div>
+        </div>
+    </div>
+
+    <!-- Row 11 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="TermTo" class="form-label">Term To</label>
+            <input type="date" class="form-control" id="TermTo" name="TermTo" required />
+            <div class="invalid-feedback">Please enter the term end date.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="NumberOfDays" class="form-label">Number of Days</label>
+            <input type="number" class="form-control" id="NumberOfDays" name="NumberOfDays" required />
+            <div class="invalid-feedback">Please enter the number of days.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="PassDuration" class="form-label">Pass Duration</label>
+            <input type="text" class="form-control" id="PassDuration" name="PassDuration" required />
+            <div class="invalid-feedback">Please enter the pass duration.</div>
+        </div>
+    </div>
+
+    <!-- Row 12 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="PassFrom" class="form-label">Pass From</label>
+            <input type="date" class="form-control" id="PassFrom" name="PassFrom" required />
+            <div class="invalid-feedback">Please enter the pass start date.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="PassTo" class="form-label">Pass To</label>
+            <input type="date" class="form-control" id="PassTo" name="PassTo" required />
+            <div class="invalid-feedback">Please enter the pass end date.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="IsDeposit" class="form-label">Deposit</label>
+            <select class="form-select" id="IsDeposit" name="IsDeposit" required>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <div class="invalid-feedback">Please select if deposit is applicable.</div>
+        </div>
+    </div>
+
+    <!-- Row 13 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="DepositAmount" class="form-label">Deposit Amount</label>
+            <input type="number" class="form-control" id="DepositAmount" name="DepositAmount" required />
+            <div class="invalid-feedback">Please enter the deposit amount.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="PassAmount" class="form-label">Pass Amount</label>
+            <input type="number" class="form-control" id="PassAmount" name="PassAmount" required />
+            <div class="invalid-feedback">Please enter the pass amount.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="TotalPassAmount" class="form-label">Total Pass Amount</label>
+            <input type="number" class="form-control" id="TotalPassAmount" name="TotalPassAmount" required />
+            <div class="invalid-feedback">Please enter the total pass amount.</div>
+        </div>
+    </div>
+
+    <!-- Row 14 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="IcardAmount" class="form-label">Icard Amount</label>
+            <input type="number" class="form-control" id="IcardAmount" name="IcardAmount" required />
+            <div class="invalid-feedback">Please enter the icard amount.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="PayableAmount" class="form-label">Payable Amount</label>
+            <input type="number" class="form-control" id="PayableAmount" name="PayableAmount" required />
+            <div class="invalid-feedback">Please enter the payable amount.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="MobileNumber" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="MobileNumber" name="MobileNumber" required />
+            <div class="invalid-feedback">Please enter your mobile number.</div>
+        </div>
+    </div>
+
+    <!-- Row 15 -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" required />
+            <div class="invalid-feedback">Please enter your email address.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="PaymentMethod" class="form-label">Payment Method</label>
+            <input type="text" class="form-control" id="PaymentMethod" name="PaymentMethod" required />
+            <select class="form-select" id="PaymentMethod" name="PaymentMethod" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="Online">Online</option>
+                <option value="Cash">Cash</option>
+            </select>
+            <div class="invalid-feedback">Please select a payment method.</div>
+        </div>
+    </div>
+
+
+    <div class="text-center">
+        <button type="button" onclick="ApplyPass()" class="btn btn-primary">Apply</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="~/js/PassApplication.js"></script>
+}

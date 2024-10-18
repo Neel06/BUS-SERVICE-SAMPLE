@@ -1,0 +1,56 @@
+﻿@using static BUS_SERVICE_SAMPLE.CommonConstants.Constants
+@model List<PassApplication>
+
+@{
+    ViewData["Title"] = "Student Dashboard";
+}
+
+<h2 class="text-center mb-4">My Applications</h2>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Student ID</th>
+            <th scope="col">Application ID</th>
+            <th scope="col">Pass Type</th>
+            <th scope="col">Academic Year</th>
+            <th scope="col">Application Date</th>
+            <th scope="col">Address Current</th>
+            <th scope="col">Address Permanant</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr style="background-color:dimgray">
+                <td>@application.StudentID</td>
+                <td>@application.ApplicationId</td>
+                <td>@application.PassType</td>
+                <td>@application.AcademicYear</td>
+                <td>@application.ApplicationDate</td>
+                <td>@application.AddressCurrent</td>
+                <td>@application.AddressPermanant</td>
+                @if (application.Status == Status.Accepted)
+                {
+                    <td style="color : green">@application.Status</td>
+                }
+                else if (application.Status == Status.Pending)
+                {
+                    <td style="color : yellow">@application.Status</td>
+                }else if (application.Status == Status.Rejected)
+                {
+                    <td style="color : red">@application.Status</td>
+                }
+                @* <td>@application.Status</td>
+            <td>@application.Status</td>
+            <td>@application.Status</td>
+            <td>@application.Status</td> *@
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/dashboard.js"></script>
+}

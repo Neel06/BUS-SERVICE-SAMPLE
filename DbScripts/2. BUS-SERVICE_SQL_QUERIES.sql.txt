@@ -1,0 +1,2 @@
+create database BUS_SERVICE;
+USE BUS_SERVICE;

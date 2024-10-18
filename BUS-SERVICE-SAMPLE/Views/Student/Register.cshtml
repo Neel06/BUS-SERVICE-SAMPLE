@@ -1,0 +1,77 @@
+﻿@model StudentRegistrationViewModel
+
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<h2 class="text-center mb-4">Register</h2>
+
+<form id="registerForm" method="post" action="/Student/Register" class="needs-validation" novalidate>
+    
+    <div class="row mb-3">
+        <label for="StudentID" class="col-sm-2 col-form-label">Student ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="StudentID" name="StudentID" required>
+            <div class="invalid-feedback">
+                Please provide your Student ID.
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="Name" name="Name" required>
+            <div class="invalid-feedback">
+                Please provide your Name.
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="Email" name="Email" required>
+            <div class="invalid-feedback">
+                Please provide a valid email.
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="BirthDate" class="col-sm-2 col-form-label">Birth Date</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="BirthDate" name="BirthDate" required>
+            <div class="invalid-feedback">
+                Please provide a valid BirthDate.
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="Password" name="Password" min="5T" required>
+            <div class="invalid-feedback">
+                Please provide a password.
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="ConfirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required>
+            <div class="invalid-feedback">
+                Please confirm your password.
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="~/js/validation.js"></script>
+}

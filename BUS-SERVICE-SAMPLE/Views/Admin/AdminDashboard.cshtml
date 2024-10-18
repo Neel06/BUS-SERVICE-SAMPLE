@@ -1,0 +1,101 @@
+﻿@model List<ApplicationViewModel>
+
+
+<h2>Admin Dashboard</h2>
+
+@* <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Application ID</th>
+            <th>Student ID</th>
+            <th>Pass Type</th>
+            <th>Application Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var app in Model.Applications)
+        {
+            <tr>
+                <td>@app.ApplicationId</td>
+                <td>@app.StudentID</td>
+                <td>@app.PassType</td>
+                <td>@app.ApplicationDate.ToString("yyyy-MM-dd")</td>
+                <td>@app.Status</td>
+                <td>
+                    <select class="form-control" id="status-@app.ApplicationId">
+                        <option value="Approved" selected="@(app.Status == "Approved")">Approved</option>
+                        <option value="Rejected" selected="@(app.Status == "Rejected")">Rejected</option>
+                        <option value="On Hold" selected="@(app.Status == "On Hold")">On Hold</option>
+                    </select>
+
+                    <button class="btn btn-primary mt-2" onclick="updateStatus(@app.ApplicationId)">Update</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> *@
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2 class="text-center mb-4">All Applications</h2>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Application ID</th>
+            <th scope="col">Student ID</th>
+            <th scope="col">Pass Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.ApplicationId</td>
+                <td>@application.StudentID</td>
+                <td>@application.PassType</td>
+                <td>@application.Status</td>
+                <td>
+                    <form method="post" action="/Admin/UpdateStatus">
+                        
+                        <input type="hidden" name="ApplicationId" value="@application.ApplicationId" />
+                        <select class="form-select" name="Status" required>
+                            <option value="Approved">Approve</option>
+                            <option value="Rejected">Reject</option>
+                            <option value="On Hold">Hold</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary mt-2">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function updateStatus(applicationId) {
+        var status = document.getElementById("status-" + applicationId).value;
+        
+        $.ajax({
+            url: '@Url.Action("UpdateStatus", "Admin")',
+            type: 'POST',
+            data: { applicationId: applicationId, status: status },
+            success: function (response) {
+                if (response.success) {
+                    alert('Status updated successfully');
+                } else {
+                    alert('Error: ' + response.message);
+                }
+            },
+            error: function () {
+                alert('An error occurred while updating the status');
+            }
+        });
+    }
+</script>
