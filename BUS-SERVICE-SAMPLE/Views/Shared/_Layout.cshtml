@@ -20,7 +20,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
 
-                    @if (string.IsNullOrEmpty(Context.Session.GetString("StudentID")))
+                    @if (string.IsNullOrEmpty(Context.Session.GetString("StudentID"))
+                    && string.IsNullOrEmpty(Context.Session.GetString("AdminID")))
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="/Student/Login">Student Login</a>
@@ -50,7 +51,7 @@
         @RenderBody()
     </div>
 
-    <footer class="footer-class bg-dark text-white text-center py-3 mt-4 " style="position:fixed;bottom:1%;width:-webkit-fill-available">
+    <footer class="footer-class bg-dark text-white text-center py-3 mt-4 " style="position:fixed;bottom:0.2%;width:-webkit-fill-available">
         <p>&copy; 2024 Bus Pass Service</p>
     </footer>
 

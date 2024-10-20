@@ -15,6 +15,7 @@
         {
             public static string Pending = "PENDING";
             public static string Accepted = "ACCEPTED";
+            public static string Approved = "APPROVED";
             public static string Rejected = "REJECTED";
         }
     }

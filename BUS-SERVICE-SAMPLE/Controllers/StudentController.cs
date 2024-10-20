@@ -23,6 +23,7 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         // GET: /Student/Register
         public IActionResult Register()
         {
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -49,8 +50,7 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            //if (ModelState.IsValid)
-            //{
+            HttpContext.Session.Clear();
             try
             {
                 var student = _authenticationService.LoginStudent(model.Email, model.Password);

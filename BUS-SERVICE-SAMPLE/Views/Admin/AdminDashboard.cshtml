@@ -50,6 +50,7 @@
             <th scope="col">Student ID</th>
             <th scope="col">Pass Type</th>
             <th scope="col">Status</th>
+            <th scope="col">Application Date</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -61,16 +62,19 @@
                 <td>@application.StudentID</td>
                 <td>@application.PassType</td>
                 <td>@application.Status</td>
+                <td>@application.Created_DateTime</td>
                 <td>
-                    <form method="post" action="/Admin/UpdateStatus">
+                    @* <form method="post" action="/Admin/UpdateStatus"> *@
+                    <form method="post" action="#">
                         
                         <input type="hidden" name="ApplicationId" value="@application.ApplicationId" />
-                        <select class="form-select" name="Status" required>
-                            <option value="Approved">Approve</option>
-                            <option value="Rejected">Reject</option>
-                            <option value="On Hold">Hold</option>
+                        <select class="form-select" name="Status" required id="status-@application.ApplicationId">
+                            <!option value="APPROVED" @(application.Status =="APPROVED"? "selected":"")>Approved</!option>
+                            <!option value="REJECTED" @(application.Status =="REJECTED"? "selected":"")>Rejected</!option>
+                            <!option value="PENDING"  @(application.Status =="PENDING" ? "selected":"")>Pending</!option>
                         </select>
-                        <button type="submit" class="btn btn-primary mt-2">Update</button>
+                        @* <button type="submit" class="btn btn-primary mt-2">Update</button> *@
+                        <button onclick="updateStatus(@application.ApplicationId)" class="btn btn-primary mt-2">Update</button>
                     </form>
                 </td>
             </tr>
@@ -81,7 +85,7 @@
 <script>
     function updateStatus(applicationId) {
         var status = document.getElementById("status-" + applicationId).value;
-        
+        debugger;
         $.ajax({
             url: '@Url.Action("UpdateStatus", "Admin")',
             type: 'POST',
@@ -90,6 +94,7 @@
             success: function (response) {
                 if (response.success) {
                     alert('Status updated successfully');
+                    setTimeout(() => { window.location.reload() }, 500)
                 } else {
                     alert('Error: ' + response.message);
                 }

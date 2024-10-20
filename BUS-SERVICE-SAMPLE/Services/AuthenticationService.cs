@@ -1,4 +1,5 @@
-﻿using BUS_SERVICE_SAMPLE.Interfaces;
+﻿using BUS_SERVICE_SAMPLE.CommonConstants;
+using BUS_SERVICE_SAMPLE.Interfaces;
 using BUS_SERVICE_SAMPLE.Models;
 using BUS_SERVICE_SAMPLE.Repository;
 
@@ -60,7 +61,7 @@ namespace BUS_SERVICE_SAMPLE.Services
         public Admin LoginAdmin(string email, string password)
         {
             var admin = _adminRepository.GetAdminByEmail(email);
-            if (admin == null || !VerifyPassword(admin.Password, password))
+            if (admin == null || !VerifyPassword(admin.Password, password) || admin.UserRole != Constants.UserRole.ADMIN)
             {
                 throw new Exception("Invalid login credentials.");
             }

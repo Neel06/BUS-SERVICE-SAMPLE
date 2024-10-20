@@ -273,17 +273,17 @@
     <div class="row">
         <div class="col-md-4 mb-3">
             <label for="DepositAmount" class="form-label">Deposit Amount<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="DepositAmount" name="DepositAmount" required />
+            <input type="number" class="form-control" id="DepositAmount" name="DepositAmount" maxlength="3" required />
             <div class="invalid-feedback">Please enter the deposit amount.</div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="PassAmount" class="form-label">Pass Amount<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="PassAmount" name="PassAmount" required />
+            <input type="number" class="form-control" id="PassAmount" name="PassAmount" maxlength="3" required />
             <div class="invalid-feedback">Please enter the pass amount.</div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="TotalPassAmount" class="form-label">Total Pass Amount<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="TotalPassAmount" name="TotalPassAmount" required />
+            <input type="number" class="form-control" id="TotalPassAmount" name="TotalPassAmount" maxlength="3" required />
             <div class="invalid-feedback">Please enter the total pass amount.</div>
         </div>
     </div>
@@ -292,17 +292,17 @@
     <div class="row">
         <div class="col-md-4 mb-3">
             <label for="IcardAmount" class="form-label">Icard Amount<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="IcardAmount" name="IcardAmount" required />
+            <input type="number" class="form-control" id="IcardAmount" name="IcardAmount" maxlength="3" required />
             <div class="invalid-feedback">Please enter the icard amount.</div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="PayableAmount" class="form-label">Payable Amount<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="PayableAmount" name="PayableAmount" required />
+            <input type="number" class="form-control" id="PayableAmount" name="PayableAmount" maxlength="3" required />
             <div class="invalid-feedback">Please enter the payable amount.</div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="MobileNumber" class="form-label">Mobile Number<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="MobileNumber" name="MobileNumber" required />
+            <input type="text" class="form-control" id="MobileNumber" name="MobileNumber" maxlength="10" required />
             <div class="invalid-feedback">Please enter your mobile number.</div>
         </div>
     </div>
@@ -329,6 +329,7 @@
 
     <div class="text-center">
         <button type="button" onclick="ApplyPass()" class="btn btn-primary">Apply</button>
+        <a href="Dashboard"  class="btn btn-primary">Back</a>
     </div>
 </form>
 

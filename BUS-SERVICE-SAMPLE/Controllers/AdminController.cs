@@ -21,6 +21,7 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         // GET: /Admin/Login    
         public IActionResult Login()
         {
+            HttpContext.Session.Clear();
             return View();
         }
 

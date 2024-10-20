@@ -21,25 +21,25 @@ namespace BUS_SERVICE_SAMPLE.Repository
             string query = "INS_PASS_APPLICATION";
             using var command = new MySqlCommand(query, connection);
             command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("APPLICATION_ID", pass.ApplicationId);
+            command.Parameters.AddWithValue("APPLICATION_DATE", pass.ApplicationDate.Date);
             command.Parameters.AddWithValue("ACADEMIC_YEAR", pass.AcademicYear);
             command.Parameters.AddWithValue("EMAIL", pass.Email);
             command.Parameters.AddWithValue("NAME", pass.FullName);
-            command.Parameters.AddWithValue("ROUTE", pass.Route);
-            command.Parameters.AddWithValue("IS_RURAL", pass.IsRural);
             command.Parameters.AddWithValue("ADDRESS_CURRENT", pass.AddressCurrent);
             command.Parameters.AddWithValue("ADDRESS_PERMANANT", pass.AddressPermanant);
-            command.Parameters.AddWithValue("APPLICATION_DATE", pass.ApplicationDate);
-            command.Parameters.AddWithValue("APPLICATION_ID", pass.ApplicationId);
             command.Parameters.AddWithValue("BLOCK_CURRENT", pass.BlockCurrent);
             command.Parameters.AddWithValue("BLOCK_PERMANANT", pass.BlockPermanant);
             command.Parameters.AddWithValue("CATEGORY", pass.Category);
             command.Parameters.AddWithValue("CLASS", pass.Class);
             command.Parameters.AddWithValue("CLASS_GROUP", pass.ClassGroup);
             command.Parameters.AddWithValue("CLUSTER_CURRENT", pass.ClusterCurrent);
+            command.Parameters.AddWithValue("CLUSTER_PERMANANT", pass.ClusterPermanant);
             command.Parameters.AddWithValue("COUNTER_NAME", pass.CounterName);
             command.Parameters.AddWithValue("CREATED_DATETIME", pass.Created_DateTime);
             command.Parameters.AddWithValue("CREATED_USER_ID", pass.Created_UserId);
             command.Parameters.AddWithValue("DISTRICT_CURRENT", pass.DistrictCurrent);
+            command.Parameters.AddWithValue("DEPOSIT_AMOUNT", pass.DepositAmount);
             command.Parameters.AddWithValue("DATE_OF_BIRTH", pass.DateOfBirth);
             command.Parameters.AddWithValue("DISTRICT_PERMANANT", pass.DistrictPermanant);
             command.Parameters.AddWithValue("FROM_LOCATION", pass.FromLocation);
@@ -47,6 +47,7 @@ namespace BUS_SERVICE_SAMPLE.Repository
             command.Parameters.AddWithValue("ICARD_AMOUNT", pass.IcardAmount);
             command.Parameters.AddWithValue("IS_ACTIVE", pass.IsActive);
             command.Parameters.AddWithValue("IS_DEPOSIT", pass.IsDeposit);
+            command.Parameters.AddWithValue("IS_RURAL", pass.IsRural);
             command.Parameters.AddWithValue("MOBILE_NUMBER", pass.MobileNumber);
             command.Parameters.AddWithValue("NUMBER_OF_DAYS", pass.NumberOfDays);
             command.Parameters.AddWithValue("PASS_DURATION", pass.PassDuration);
@@ -57,6 +58,7 @@ namespace BUS_SERVICE_SAMPLE.Repository
             command.Parameters.AddWithValue("PAYABLE_AMOUNT", pass.PayableAmount);
             command.Parameters.AddWithValue("PAYMENT_METHOD", pass.PaymentMethod);
             command.Parameters.AddWithValue("ROLL_NUMBER", pass.RollNumber);
+            command.Parameters.AddWithValue("ROUTE", pass.Route);
             command.Parameters.AddWithValue("SAME_AS_PERMANANT", pass.SameAsPermanant);
             command.Parameters.AddWithValue("SCHOOL_ADDRESS", pass.SchoolAddress);
             command.Parameters.AddWithValue("SCHOOL_NAME", pass.SchoolName);
@@ -67,6 +69,8 @@ namespace BUS_SERVICE_SAMPLE.Repository
             command.Parameters.AddWithValue("TERM", pass.Term);
             command.Parameters.AddWithValue("TERM_FROM", pass.TermFrom);
             command.Parameters.AddWithValue("TERM_TO", pass.TermTo);
+            command.Parameters.AddWithValue("TOTAL_PASS_AMOUNT", pass.TotalPassAmount);
+            command.Parameters.AddWithValue("TO_LOCATION", pass.ToLocation);
             command.Parameters.AddWithValue("UPDATED_DATETIME", pass.Updated_DateTime);
             command.Parameters.AddWithValue("UPDATED_USER_ID", pass.Updated_UserId);
             //command.Parameters.AddWithValue("USER_ROLE", pass.UserRole);
@@ -353,8 +357,20 @@ namespace BUS_SERVICE_SAMPLE.Repository
 
         public void UpdateApplication(PassApplication application)
         {
-            //_context.PassApplications.Update(application);
-            //_context.SaveChanges();
+            string query = _configuration.GetConnectionString("DefaultConnection");
+            using MySqlConnection connection = new (query);
+            string procedureName = "UPDATE_APPLICTION";
+            using MySqlCommand command = new MySqlCommand(procedureName,connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("APPLICATION_ID", application.ApplicationId);
+            command.Parameters.AddWithValue("STATUS", application.Status);
+            
+            if (connection.State != ConnectionState.Open)
+            {
+                connection.Open();
+            }
+            command.ExecuteNonQuery();
         }
 
         public List<PassApplication> GetAllApplications()
