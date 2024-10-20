@@ -48,7 +48,7 @@ namespace BUS_SERVICE_SAMPLE.Repository
             Student student = null;
             using var connection = new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            string query = "GET_USER_MASTER";
+            string query = "GET_STUDENT_MASTER";
             using var command = new MySqlCommand(query, connection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("EMAIL", email);

@@ -1,0 +1,594 @@
+﻿@model BUS_SERVICE_SAMPLE.Models.PassApplication
+
+@{
+    ViewData["Title"] = "Application Details";
+}
+
+<h1>Application Details</h1>
+<div>
+    <hr />
+    <form>
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ApplicationId)</label>
+                <input type="text" class="form-control" value="@Model.ApplicationId" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.StudentID)</label>
+                <input type="text" class="form-control" value="@Model.StudentID" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassType)</label>
+                <input type="text" class="form-control" value="@Model.PassType" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ApplicationDate)</label>
+                <input type="text" class="form-control" value="@Model.ApplicationDate" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Status)</label>
+                <input type="text" class="form-control" value="@Model.Status" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.FullName)</label>
+                <input type="text" class="form-control" value="@Model.FullName" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Gender)</label>
+                <input type="text" class="form-control" value="@Model.Gender" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IsRural)</label>
+                <input type="text" class="form-control" value="@Model.IsRural" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DistrictPermanant)</label>
+                <input type="text" class="form-control" value="@Model.DistrictPermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.BlockPermanant)</label>
+                <input type="text" class="form-control" value="@Model.BlockPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClusterPermanant)</label>
+                <input type="text" class="form-control" value="@Model.ClusterPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.VillagePermanant)</label>
+                <input type="text" class="form-control" value="@Model.VillagePermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DistrictCurrent)</label>
+                <input type="text" class="form-control" value="@Model.DistrictCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.BlockCurrent)</label>
+                <input type="text" class="form-control" value="@Model.BlockCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClusterCurrent)</label>
+                <input type="text" class="form-control" value="@Model.ClusterCurrent" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.VillageCurrent)</label>
+                <input type="text" class="form-control" value="@Model.VillageCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Section)</label>
+                <input type="text" class="form-control" value="@Model.Section" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.RollNumber)</label>
+                <input type="text" class="form-control" value="@Model.RollNumber" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
+                <input type="text" class="form-control" value="@Model.DateOfBirth" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Class)</label>
+                <input type="text" class="form-control" value="@Model.Class" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClassGroup)</label>
+                <input type="text" class="form-control" value="@Model.ClassGroup" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Category)</label>
+                <input type="text" class="form-control" value="@Model.Category" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SchoolName)</label>
+                <input type="text" class="form-control" value="@Model.SchoolName" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SchoolAddress)</label>
+                <input type="text" class="form-control" value="@Model.SchoolAddress" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AddressPermanant)</label>
+                <input type="text" class="form-control" value="@Model.AddressPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AddressCurrent)</label>
+                <input type="text" class="form-control" value="@Model.AddressCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SameAsPermanant)</label>
+                <input type="text" class="form-control" value="@Model.SameAsPermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.FromLocation)</label>
+                <input type="text" class="form-control" value="@Model.FromLocation" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ToLocation)</label>
+                <input type="text" class="form-control" value="@Model.ToLocation" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Route)</label>
+                <input type="text" class="form-control" value="@Model.Route" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.CounterName)</label>
+                <input type="text" class="form-control" value="@Model.CounterName" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Stage)</label>
+                <input type="text" class="form-control" value="@Model.Stage" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AcademicYear)</label>
+                <input type="text" class="form-control" value="@Model.AcademicYear" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Term)</label>
+                <input type="text" class="form-control" value="@Model.Term" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TermFrom)</label>
+                <input type="text" class="form-control" value="@Model.TermFrom" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TermTo)</label>
+                <input type="text" class="form-control" value="@Model.TermTo" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.NumberOfDays)</label>
+                <input type="text" class="form-control" value="@Model.NumberOfDays" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassDuration)</label>
+                <input type="text" class="form-control" value="@Model.PassDuration" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassFrom)</label>
+                <input type="text" class="form-control" value="@Model.PassFrom" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassTo)</label>
+                <input type="text" class="form-control" value="@Model.PassTo" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IsDeposit)</label>
+                <input type="text" class="form-control" value="@Model.IsDeposit" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DepositAmount)</label>
+                <input type="text" class="form-control" value="@Model.DepositAmount" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassAmount)</label>
+                <input type="text" class="form-control" value="@Model.PassAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TotalPassAmount)</label>
+                <input type="text" class="form-control" value="@Model.TotalPassAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IcardAmount)</label>
+                <input type="text" class="form-control" value="@Model.IcardAmount" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PayableAmount)</label>
+                <input type="text" class="form-control" value="@Model.PayableAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.MobileNumber)</label>
+                <input type="text" class="form-control" value="@Model.MobileNumber" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Email)</label>
+                <input type="text" class="form-control" value="@Model.Email" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PaymentMethod)</label>
+                <input type="text" class="form-control" value="@Model.PaymentMethod" readonly />
+            </div>
+        </div>
+    </form>
+    @* <dl class="row">
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ApplicationId)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ApplicationId)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.StudentID)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.StudentID)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PassType)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PassType)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ApplicationDate)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ApplicationDate)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Status)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Status)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.FullName)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.FullName)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Gender)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Gender)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.IsRural)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.IsRural)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DistrictPermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DistrictPermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.BlockPermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.BlockPermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ClusterPermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ClusterPermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.VillagePermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.VillagePermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DistrictCurrent)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DistrictCurrent)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.BlockCurrent)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.BlockCurrent)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ClusterCurrent)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ClusterCurrent)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.VillageCurrent)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.VillageCurrent)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Section)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Section)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.RollNumber)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.RollNumber)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DateOfBirth)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DateOfBirth)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Class)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Class)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ClassGroup)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ClassGroup)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Category)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Category)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.SchoolName)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.SchoolName)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.SchoolAddress)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.SchoolAddress)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.AddressPermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.AddressPermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.AddressCurrent)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.AddressCurrent)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.SameAsPermanant)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.SameAsPermanant)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.FromLocation)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.FromLocation)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ToLocation)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ToLocation)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Route)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Route)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.CounterName)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.CounterName)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Stage)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Stage)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.AcademicYear)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.AcademicYear)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Term)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Term)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.TermFrom)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.TermFrom)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.TermTo)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.TermTo)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.NumberOfDays)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.NumberOfDays)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PassDuration)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PassDuration)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PassFrom)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PassFrom)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PassTo)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PassTo)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.IsDeposit)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.IsDeposit)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.DepositAmount)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.DepositAmount)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PassAmount)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PassAmount)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.TotalPassAmount)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.TotalPassAmount)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.IcardAmount)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.IcardAmount)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PayableAmount)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PayableAmount)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.MobileNumber)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.MobileNumber)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.PaymentMethod)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.PaymentMethod)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Created_DateTime)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Created_DateTime)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Created_UserId)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Created_UserId)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.IsActive)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.IsActive)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Updated_UserId)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Updated_UserId)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Updated_DateTime)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Updated_DateTime)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.UserRole)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.UserRole)
+    </dd>
+    </dl> *@
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Dashboard">Back to List</a>
+</div>

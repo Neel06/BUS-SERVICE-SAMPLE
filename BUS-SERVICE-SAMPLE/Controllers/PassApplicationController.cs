@@ -1,4 +1,5 @@
-﻿using BUS_SERVICE_SAMPLE.Interfaces;
+﻿using BUS_SERVICE_SAMPLE.Helpers;
+using BUS_SERVICE_SAMPLE.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         }
 
         // GET: /PassApplication/Details/{id}
+        [CustomAuthorize]
         public IActionResult Details(string id)
         {
             var application = _passApplicationService.GetStudentApplications(id);

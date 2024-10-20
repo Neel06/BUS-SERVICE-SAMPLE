@@ -7,30 +7,35 @@
 <h2 class="text-center mb-4">Apply for a Bus Pass</h2>
 
 <form id="applyPassForm" method="post" action="#" class="needs-validation" onsubmit="ValidateForm()">
-    
+
     <div class="row mb-3">
-        <label for="PassType" class="col-sm-1 col-form-label">Pass Type</label>
+        <label for="PassType" class="col-sm-1 col-form-label">Pass Type<span class="text-danger">*</span></label>
         <div class="col-sm-10 col-md-3">
             <select class="form-select" id="PassType" name="PassType" required>
                 <option selected disabled value="">Choose...</option>
-                <option value="StudentPass">Student Pass</option>
-                <option value="CollegePass">College Pass</option>
+                <option value="STUDENT_PASS">Student Pass</option>
+                <option value="COLLEGE_PASS">College Pass</option>
             </select>
             <div class="invalid-feedback">
                 Please select a pass type.
             </div>
+        </div>
+        <label for="StudentID" class="col-sm-1 col-form-label">Student ID<span class="text-danger">*</span></label>
+        <div class="col-sm-10 col-md-3">
+            <input type="text" class="form-control" id="StudentID" name="StudentID" value="@Context.Session.GetString("StudentID")" readonly required />
+            <div class="invalid-feedback">Please enter your Student ID.</div>
         </div>
     </div>
 
     <!-- Row 1 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="Name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="Name" name="Name" required />
+            <label for="Name" class="form-label">Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Context.Session.GetString("StudentName")" readonly required />
             <div class="invalid-feedback">Please enter your name.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Gender" class="form-label">Gender</label>
+            <label for="Gender" class="form-label">Gender<span class="text-danger">*</span></label>
             <select class="form-select" id="Gender" name="Gender" required>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -38,7 +43,7 @@
             <div class="invalid-feedback">Please select gender.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="IsRural" class="form-label">Rural</label>
+            <label for="IsRural" class="form-label">Rural<span class="text-danger">*</span></label>
             <select class="form-select" id="IsRural" name="IsRural" required>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -50,17 +55,17 @@
     <!-- Row 2 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="DistrictPermanant" class="form-label">District (Permanant)</label>
+            <label for="DistrictPermanant" class="form-label">District (Permanant)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="DistrictPermanant" name="DistrictPermanant" required />
             <div class="invalid-feedback">Please enter the permanent district.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="BlockPermanant" class="form-label">Block (Permanant)</label>
+            <label for="BlockPermanant" class="form-label">Block (Permanant)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="BlockPermanant" name="BlockPermanant" required />
             <div class="invalid-feedback">Please enter the permanent block.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="ClusterPermanant" class="form-label">Cluster (Permanant)</label>
+            <label for="ClusterPermanant" class="form-label">Cluster (Permanant)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="ClusterPermanant" name="ClusterPermanant" required />
             <div class="invalid-feedback">Please enter the permanent cluster.</div>
         </div>
@@ -69,17 +74,17 @@
     <!-- Row 3 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="VillagePermanant" class="form-label">Village (Permanant)</label>
+            <label for="VillagePermanant" class="form-label">Village (Permanant)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="VillagePermanant" name="VillagePermanant" required />
             <div class="invalid-feedback">Please enter the permanent village.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="DistrictCurrent" class="form-label">District (Current)</label>
+            <label for="DistrictCurrent" class="form-label">District (Current)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="DistrictCurrent" name="DistrictCurrent" required />
             <div class="invalid-feedback">Please enter the current district.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="BlockCurrent" class="form-label">Block (Current)</label>
+            <label for="BlockCurrent" class="form-label">Block (Current)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="BlockCurrent" name="BlockCurrent" required />
             <div class="invalid-feedback">Please enter the current block.</div>
         </div>
@@ -88,17 +93,17 @@
     <!-- Row 4 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="ClusterCurrent" class="form-label">Cluster (Current)</label>
+            <label for="ClusterCurrent" class="form-label">Cluster (Current)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="ClusterCurrent" name="ClusterCurrent" required />
             <div class="invalid-feedback">Please enter the current cluster.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="VillageCurrent" class="form-label">Village (Current)</label>
+            <label for="VillageCurrent" class="form-label">Village (Current)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="VillageCurrent" name="VillageCurrent" required />
             <div class="invalid-feedback">Please enter the current village.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Section" class="form-label">Section</label>
+            <label for="Section" class="form-label">Section<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="Section" name="Section" required />
             <div class="invalid-feedback">Please enter your section.</div>
         </div>
@@ -107,17 +112,17 @@
     <!-- Row 5 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="RollNumber" class="form-label">Roll Number</label>
+            <label for="RollNumber" class="form-label">Roll Number<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="RollNumber" name="RollNumber" required />
             <div class="invalid-feedback">Please enter your roll number.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="DateOfBirth" class="form-label">Date of Birth</label>
+            <label for="DateOfBirth" class="form-label">Date of Birth<span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" required />
             <div class="invalid-feedback">Please enter your date of birth.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Class" class="form-label">Class</label>
+            <label for="Class" class="form-label">Class<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="Class" name="Class" required />
             <div class="invalid-feedback">Please enter your class.</div>
         </div>
@@ -126,12 +131,12 @@
     <!-- Row 6 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="ClassGroup" class="form-label">Class Group</label>
+            <label for="ClassGroup" class="form-label">Class Group<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="ClassGroup" name="ClassGroup" required />
             <div class="invalid-feedback">Please enter your class group.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Category" class="form-label">Category</label>
+            <label for="Category" class="form-label">Category<span class="text-danger">*</span></label>
             <select class="form-select" id="Category" name="Category" required>
                 <option selected disabled value="">Choose...</option>
                 <option value="General">General</option>
@@ -142,7 +147,7 @@
             <div class="invalid-feedback">Please select a category.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="SchoolName" class="form-label">School Name</label>
+            <label for="SchoolName" class="form-label">School Name<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="SchoolName" name="SchoolName" required />
             <div class="invalid-feedback">Please enter your school name.</div>
         </div>
@@ -151,17 +156,17 @@
     <!-- Row 7 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="SchoolAddress" class="form-label">School Address</label>
+            <label for="SchoolAddress" class="form-label">School Address<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="SchoolAddress" name="SchoolAddress" required />
             <div class="invalid-feedback">Please enter your school address.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="AddressPermanant" class="form-label">Address (Permanent)</label>
+            <label for="AddressPermanant" class="form-label">Address (Permanent)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="AddressPermanant" name="AddressPermanant" required />
             <div class="invalid-feedback">Please enter your permanent address.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="AddressCurrent" class="form-label">Address (Current)</label>
+            <label for="AddressCurrent" class="form-label">Address (Current)<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="AddressCurrent" name="AddressCurrent" required />
             <div class="invalid-feedback">Please enter your current address.</div>
         </div>
@@ -170,16 +175,16 @@
     <!-- Row 8 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="SameAsPermanant" class="form-label">Same as Permanent Address</label>
+            <label for="SameAsPermanant" class="form-label">Same as Permanent Address<span class="text-danger">*</span></label>
             <input type="checkbox" class="form-check-input" id="SameAsPermanant" name="SameAsPermanant" />
         </div>
         <div class="col-md-4 mb-3">
-            <label for="FromLocation" class="form-label">From Location</label>
+            <label for="FromLocation" class="form-label">From Location<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="FromLocation" name="FromLocation" required />
             <div class="invalid-feedback">Please enter the starting location.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="ToLocation" class="form-label">To Location</label>
+            <label for="ToLocation" class="form-label">To Location<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="ToLocation" name="ToLocation" required />
             <div class="invalid-feedback">Please enter the destination location.</div>
         </div>
@@ -188,17 +193,17 @@
     <!-- Row 9 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="Route" class="form-label">Route</label>
+            <label for="Route" class="form-label">Route<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="Route" name="Route" required />
             <div class="invalid-feedback">Please enter the route.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="CounterName" class="form-label">Counter Name</label>
+            <label for="CounterName" class="form-label">Counter Name<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="CounterName" name="CounterName" required />
             <div class="invalid-feedback">Please enter the counter name.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Stage" class="form-label">Stage</label>
+            <label for="Stage" class="form-label">Stage<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="Stage" name="Stage" required />
             <div class="invalid-feedback">Please enter the stage number.</div>
         </div>
@@ -207,17 +212,17 @@
     <!-- Row 10 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="AcademicYear" class="form-label">Academic Year</label>
+            <label for="AcademicYear" class="form-label">Academic Year<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="AcademicYear" name="AcademicYear" required />
             <div class="invalid-feedback">Please enter the academic year.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="Term" class="form-label">Term</label>
+            <label for="Term" class="form-label">Term<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="Term" name="Term" required />
             <div class="invalid-feedback">Please enter the term.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="TermFrom" class="form-label">Term From</label>
+            <label for="TermFrom" class="form-label">Term From<span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="TermFrom" name="TermFrom" required />
             <div class="invalid-feedback">Please enter the term start date.</div>
         </div>
@@ -226,17 +231,17 @@
     <!-- Row 11 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="TermTo" class="form-label">Term To</label>
+            <label for="TermTo" class="form-label">Term To<span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="TermTo" name="TermTo" required />
             <div class="invalid-feedback">Please enter the term end date.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="NumberOfDays" class="form-label">Number of Days</label>
+            <label for="NumberOfDays" class="form-label">Number of Days<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="NumberOfDays" name="NumberOfDays" required />
             <div class="invalid-feedback">Please enter the number of days.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="PassDuration" class="form-label">Pass Duration</label>
+            <label for="PassDuration" class="form-label">Pass Duration<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="PassDuration" name="PassDuration" required />
             <div class="invalid-feedback">Please enter the pass duration.</div>
         </div>
@@ -245,17 +250,17 @@
     <!-- Row 12 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="PassFrom" class="form-label">Pass From</label>
+            <label for="PassFrom" class="form-label">Pass From<span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="PassFrom" name="PassFrom" required />
             <div class="invalid-feedback">Please enter the pass start date.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="PassTo" class="form-label">Pass To</label>
+            <label for="PassTo" class="form-label">Pass To<span class="text-danger">*</span></label>
             <input type="date" class="form-control" id="PassTo" name="PassTo" required />
             <div class="invalid-feedback">Please enter the pass end date.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="IsDeposit" class="form-label">Deposit</label>
+            <label for="IsDeposit" class="form-label">Deposit<span class="text-danger">*</span></label>
             <select class="form-select" id="IsDeposit" name="IsDeposit" required>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -267,17 +272,17 @@
     <!-- Row 13 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="DepositAmount" class="form-label">Deposit Amount</label>
+            <label for="DepositAmount" class="form-label">Deposit Amount<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="DepositAmount" name="DepositAmount" required />
             <div class="invalid-feedback">Please enter the deposit amount.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="PassAmount" class="form-label">Pass Amount</label>
+            <label for="PassAmount" class="form-label">Pass Amount<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="PassAmount" name="PassAmount" required />
             <div class="invalid-feedback">Please enter the pass amount.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="TotalPassAmount" class="form-label">Total Pass Amount</label>
+            <label for="TotalPassAmount" class="form-label">Total Pass Amount<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="TotalPassAmount" name="TotalPassAmount" required />
             <div class="invalid-feedback">Please enter the total pass amount.</div>
         </div>
@@ -286,17 +291,17 @@
     <!-- Row 14 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="IcardAmount" class="form-label">Icard Amount</label>
+            <label for="IcardAmount" class="form-label">Icard Amount<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="IcardAmount" name="IcardAmount" required />
             <div class="invalid-feedback">Please enter the icard amount.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="PayableAmount" class="form-label">Payable Amount</label>
+            <label for="PayableAmount" class="form-label">Payable Amount<span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="PayableAmount" name="PayableAmount" required />
             <div class="invalid-feedback">Please enter the payable amount.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="MobileNumber" class="form-label">Mobile Number</label>
+            <label for="MobileNumber" class="form-label">Mobile Number<span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="MobileNumber" name="MobileNumber" required />
             <div class="invalid-feedback">Please enter your mobile number.</div>
         </div>
@@ -305,13 +310,13 @@
     <!-- Row 15 -->
     <div class="row">
         <div class="col-md-4 mb-3">
-            <label for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" name="Email" required />
+            <label for="Email" class="form-label">Email<span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="Email" name="Email" value="@Context.Session.GetString("Email")" readonly required />
             <div class="invalid-feedback">Please enter your email address.</div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="PaymentMethod" class="form-label">Payment Method</label>
-            <input type="text" class="form-control" id="PaymentMethod" name="PaymentMethod" required />
+            <label for="PaymentMethod" class="form-label">Payment Method<span class="text-danger">*</span></label>
+            @* <input type="text" class="form-control" id="PaymentMethod" name="PaymentMethod" required /> *@
             <select class="form-select" id="PaymentMethod" name="PaymentMethod" required>
                 <option selected disabled value="">Choose...</option>
                 <option value="Online">Online</option>

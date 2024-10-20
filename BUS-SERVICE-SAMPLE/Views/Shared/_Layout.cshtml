@@ -19,15 +19,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Student/Login">Student Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Admin/Login">Admin Login</a>
-                    </li>
+
+                    @if (string.IsNullOrEmpty(Context.Session.GetString("StudentID")))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Student/Login">Student Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Login">Admin Login</a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("StudentID")))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Student/Logout">Log out</a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("AdminID")))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Logout">Log out</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -37,7 +50,7 @@
         @RenderBody()
     </div>
 
-    <footer class="footer-class bg-dark text-white text-center py-3 mt-4 " style="position:fixed;bottom:auto;width:-webkit-fill-available">
+    <footer class="footer-class bg-dark text-white text-center py-3 mt-4 " style="position:fixed;bottom:1%;width:-webkit-fill-available">
         <p>&copy; 2024 Bus Pass Service</p>
     </footer>
 

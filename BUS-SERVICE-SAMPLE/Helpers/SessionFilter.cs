@@ -12,10 +12,11 @@ namespace BUS_SERVICE_SAMPLE.Helpers
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (string.IsNullOrEmpty(_contextAccessor.HttpContext.Session.GetString("StudentID")))
+            if (string.IsNullOrEmpty(_contextAccessor.HttpContext.Session.GetString("StudentID"))
+                && (string.IsNullOrEmpty(_contextAccessor.HttpContext.Session.GetString("AdminID"))))
             {
                 context.Result = new UnauthorizedObjectResult(string.Empty);
-                _contextAccessor.HttpContext.Response.Redirect($"/Home/Index");
+                _contextAccessor.HttpContext.Response.Redirect($"/");
                 return;
             }
         }

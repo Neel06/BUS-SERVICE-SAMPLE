@@ -1,0 +1,254 @@
+﻿@model BUS_SERVICE_SAMPLE.Models.PassApplication
+
+<div class="container">
+    <h4>Pass Application</h4>
+    <hr />
+    <form>
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ApplicationId)</label>
+                <input type="text" class="form-control" value="@Model.ApplicationId" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.StudentID)</label>
+                <input type="text" class="form-control" value="@Model.StudentID" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassType)</label>
+                <input type="text" class="form-control" value="@Model.PassType" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ApplicationDate)</label>
+                <input type="text" class="form-control" value="@Model.ApplicationDate" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Status)</label>
+                <input type="text" class="form-control" value="@Model.Status" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.FullName)</label>
+                <input type="text" class="form-control" value="@Model.FullName" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Gender)</label>
+                <input type="text" class="form-control" value="@Model.Gender" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IsRural)</label>
+                <input type="text" class="form-control" value="@Model.IsRural" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DistrictPermanant)</label>
+                <input type="text" class="form-control" value="@Model.DistrictPermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.BlockPermanant)</label>
+                <input type="text" class="form-control" value="@Model.BlockPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClusterPermanant)</label>
+                <input type="text" class="form-control" value="@Model.ClusterPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.VillagePermanant)</label>
+                <input type="text" class="form-control" value="@Model.VillagePermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DistrictCurrent)</label>
+                <input type="text" class="form-control" value="@Model.DistrictCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.BlockCurrent)</label>
+                <input type="text" class="form-control" value="@Model.BlockCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClusterCurrent)</label>
+                <input type="text" class="form-control" value="@Model.ClusterCurrent" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.VillageCurrent)</label>
+                <input type="text" class="form-control" value="@Model.VillageCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Section)</label>
+                <input type="text" class="form-control" value="@Model.Section" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.RollNumber)</label>
+                <input type="text" class="form-control" value="@Model.RollNumber" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
+                <input type="text" class="form-control" value="@Model.DateOfBirth" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Class)</label>
+                <input type="text" class="form-control" value="@Model.Class" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ClassGroup)</label>
+                <input type="text" class="form-control" value="@Model.ClassGroup" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Category)</label>
+                <input type="text" class="form-control" value="@Model.Category" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SchoolName)</label>
+                <input type="text" class="form-control" value="@Model.SchoolName" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SchoolAddress)</label>
+                <input type="text" class="form-control" value="@Model.SchoolAddress" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AddressPermanant)</label>
+                <input type="text" class="form-control" value="@Model.AddressPermanant" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AddressCurrent)</label>
+                <input type="text" class="form-control" value="@Model.AddressCurrent" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.SameAsPermanant)</label>
+                <input type="text" class="form-control" value="@Model.SameAsPermanant" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.FromLocation)</label>
+                <input type="text" class="form-control" value="@Model.FromLocation" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.ToLocation)</label>
+                <input type="text" class="form-control" value="@Model.ToLocation" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Route)</label>
+                <input type="text" class="form-control" value="@Model.Route" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.CounterName)</label>
+                <input type="text" class="form-control" value="@Model.CounterName" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Stage)</label>
+                <input type="text" class="form-control" value="@Model.Stage" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.AcademicYear)</label>
+                <input type="text" class="form-control" value="@Model.AcademicYear" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Term)</label>
+                <input type="text" class="form-control" value="@Model.Term" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TermFrom)</label>
+                <input type="text" class="form-control" value="@Model.TermFrom" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TermTo)</label>
+                <input type="text" class="form-control" value="@Model.TermTo" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.NumberOfDays)</label>
+                <input type="text" class="form-control" value="@Model.NumberOfDays" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassDuration)</label>
+                <input type="text" class="form-control" value="@Model.PassDuration" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassFrom)</label>
+                <input type="text" class="form-control" value="@Model.PassFrom" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassTo)</label>
+                <input type="text" class="form-control" value="@Model.PassTo" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IsDeposit)</label>
+                <input type="text" class="form-control" value="@Model.IsDeposit" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.DepositAmount)</label>
+                <input type="text" class="form-control" value="@Model.DepositAmount" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PassAmount)</label>
+                <input type="text" class="form-control" value="@Model.PassAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.TotalPassAmount)</label>
+                <input type="text" class="form-control" value="@Model.TotalPassAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.IcardAmount)</label>
+                <input type="text" class="form-control" value="@Model.IcardAmount" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PayableAmount)</label>
+                <input type="text" class="form-control" value="@Model.PayableAmount" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.MobileNumber)</label>
+                <input type="text" class="form-control" value="@Model.MobileNumber" readonly />
+            </div>
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.Email)</label>
+                <input type="text" class="form-control" value="@Model.Email" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>@Html.DisplayNameFor(model => model.PaymentMethod)</label>
+                <input type="text" class="form-control" value="@Model.PaymentMethod" readonly />
+            </div>
+        </div>
+    </form>
+</div>

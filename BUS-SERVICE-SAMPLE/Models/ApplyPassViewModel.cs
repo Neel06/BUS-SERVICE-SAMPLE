@@ -2,7 +2,7 @@
 
 namespace BUS_SERVICE_SAMPLE.Models
 {
-    public class ApplyPassViewModel : BaseModel
+    public class ApplyPassViewModel : PassApplication
     {
         [Required]
         public string StudentID { get; set; }

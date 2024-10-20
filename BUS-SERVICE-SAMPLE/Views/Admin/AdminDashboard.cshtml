@@ -1,4 +1,4 @@
-﻿@model List<ApplicationViewModel>
+﻿@model List<PassApplication>
 
 
 <h2>Admin Dashboard</h2>
@@ -85,7 +85,8 @@
         $.ajax({
             url: '@Url.Action("UpdateStatus", "Admin")',
             type: 'POST',
-            data: { applicationId: applicationId, status: status },
+            // data: { applicationId: applicationId, status: status,remarks: remarks }, To-do add remarks column in PassApplication table;
+            data: { applicationId: applicationId, status: status},
             success: function (response) {
                 if (response.success) {
                     alert('Status updated successfully');

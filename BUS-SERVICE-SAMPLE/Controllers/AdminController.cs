@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BUS_SERVICE_SAMPLE.Models;
 using BUS_SERVICE_SAMPLE.Interfaces;
+using BUS_SERVICE_SAMPLE.Helpers;
 
 namespace BUS_SERVICE_SAMPLE.Controllers
 {
@@ -30,9 +31,9 @@ namespace BUS_SERVICE_SAMPLE.Controllers
             try
             {
                 var admin = _authenticationService.LoginAdmin(model.Email, model.Password);
-                HttpContext.Session.SetString("AdminId", admin.AdminID.ToString());
-                HttpContext.Session.SetString("Email", admin.Email.ToString());
-                HttpContext.Session.SetString("UserRole", admin.UserRole.ToString());
+                _httpContext.HttpContext.Session.SetString("AdminID", admin.Email.ToString()); //We will treat Admin email as its ID
+                _httpContext.HttpContext.Session.SetString("Email", admin.Email.ToString());
+                _httpContext.HttpContext.Session.SetString("UserRole", admin.UserRole.ToString());
                 return RedirectToAction("Dashboard");
             }
             catch (Exception ex)
@@ -43,10 +44,11 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         }
 
         // GET: /Admin/Dashboard
+        [CustomAuthorize]
         public IActionResult Dashboard()
         {
             var applications = _passApplicationService.GetAllApplications();
-            return View(applications);
+            return View("~/Views/Admin/AdminDashboard.cshtml",applications);
         }
 
         // POST: /Admin/UpdateStatus

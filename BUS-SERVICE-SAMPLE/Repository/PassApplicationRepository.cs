@@ -2,13 +2,11 @@
 using BUS_SERVICE_SAMPLE.Models;
 using MySqlConnector;
 using System.Data;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BUS_SERVICE_SAMPLE.Repository
 {
     public class PassApplicationRepository : IPassApplicationRepository
     {
-        private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
 
         public PassApplicationRepository(IConfiguration configuration)
@@ -365,7 +363,7 @@ namespace BUS_SERVICE_SAMPLE.Repository
             List<PassApplication> apps = new();
             using var connection = new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
-            string query = "GET_ALL_APPLICAITIONS";
+            string query = "GET_ALL_APPLICATIONS";
             using var command = new MySqlCommand(query, connection);
             command.CommandType = CommandType.StoredProcedure;
             //command.Parameters.AddWithValue("STUDENT_ID", studentId);

@@ -51,18 +51,18 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                try
-                {
-                    var student = _authenticationService.LoginStudent(model.Email, model.Password);
-                    HttpContext.Session.SetString("Email", student.Email.ToString());
-                    //HttpContext.Session.SetString("UserRole", student.UserRole.ToString());
-                    HttpContext.Session.SetString("StudentID", student.StudentID);
-                    return RedirectToAction("Dashboard");
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", ex.Message);
-                }
+            try
+            {
+                var student = _authenticationService.LoginStudent(model.Email, model.Password);
+                HttpContext.Session.SetString("Email", student.Email.ToString());
+                HttpContext.Session.SetString("StudentName", student.Name.ToString());
+                HttpContext.Session.SetString("StudentID", student.StudentID);
+                return RedirectToAction("Dashboard");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
             //}
             return View(model);
         }
@@ -88,22 +88,31 @@ namespace BUS_SERVICE_SAMPLE.Controllers
         [CustomAuthorize]
         public IActionResult ApplyPass(PassApplicationViewModel model)
         {
-            var studentId = HttpContext.Session.GetString("StudentId");
+            var studentId = HttpContext.Session.GetString("StudentID");
             model.StudentID = studentId;
 
-            if (ModelState.IsValid)
-            {
-                _passApplicationService.ApplyForPass(model);
-                return RedirectToAction("Dashboard");
-            }
-            return View(model);
+            _passApplicationService.ApplyForPass(model);
+            return RedirectToAction("Dashboard");
+
+            //return View(model);
         }
 
         // GET: /Student/Logout
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [CustomAuthorize]
+        public IActionResult ShowApplicationDetails()
+        {
+            var studentId = HttpContext.Session.GetString("StudentID");
+            if (studentId == null)
+                ArgumentNullException.ThrowIfNull(studentId);
+            PassApplication application =  _passApplicationService.GetStudentApplications(studentId).FirstOrDefault();
+
+            return View("~/Views/Shared/ApplicationDetails.cshtml", application);
         }
     }
 
